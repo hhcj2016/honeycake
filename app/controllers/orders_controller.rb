@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
 
-  before_action :authenticate_user!, only:[:create]
+  before_action :authenticate_user!, only: [:create]
+
+  def index
+    @orders = current_user.orders
+  end
 
   def create
     @order = Order.new(order_params)
