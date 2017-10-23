@@ -29,7 +29,7 @@ class Order < ApplicationRecord
     state :shipping
     state :shipped
     state :order_cancelled
-    state :good_returned
+    state :goods_returned
 
 
     event :make_payment, after_commit: :pay! do
@@ -44,8 +44,8 @@ class Order < ApplicationRecord
       transitions from: :shipping,     to: :shipped
     end
 
-    event :return_good do
-      transitions from: :shipped,      to: :good_returned
+    event :return_goods do
+      transitions from: :shipped,      to: :goods_returned
     end
 
     event :cancel_order do
