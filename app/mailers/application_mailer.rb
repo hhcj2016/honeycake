@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'service@jdstore.com'
+  default from: 'service@honeycake.com'
   layout 'mailer'
 end
