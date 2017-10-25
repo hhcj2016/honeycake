@@ -58,6 +58,13 @@
       </tbody>
     </table>
 
+
+    <div class="pull-left">
+      <% if @order.order_placed? || @order.paid? %>
+        <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn btn-info") %>
+      <% end %>
+    </div>
+
 <% if @order.aasm_state != "order_cancelled" %>
 
      <% if !@order.is_paid? %>
@@ -66,7 +73,7 @@
          <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
        </div>
     <% else %>
-       <p class="text-center">此订单已完成付款 & <%= @order.aasm_state %> </p> 
+       <p class="text-center">此订单已完成付款 & <%= @order.aasm_state %> </p>
     <% end %>
 
 <% else %>
