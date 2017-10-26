@@ -8,7 +8,7 @@ before_action :admin_required
 
    def index
     @products = Product.all
- end
+   end
 
   def new
    @product = Product.new
@@ -38,11 +38,17 @@ before_action :admin_required
      end
    end
 
+   def destroy
+     @product = Product.find(params[:id])
+     @product.destroy
+
+     redirect_to admin_products_path
+   end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :category_id)
   end
 
 end
