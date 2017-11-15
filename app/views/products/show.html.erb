@@ -6,6 +6,18 @@
       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
     <% end %>
   </div>
+
+      <div class="text-left">
+
+      <% if current_user # 有登入才可以收藏 %>
+       <% if @product.find_favorite(current_user) %>
+          <%= link_to "取消收藏", unfavorite_product_path(@product), :method => :post, :class => "btn btn-primary" %>
+        <% else %>
+          <%= link_to "收藏", favorite_product_path(@product), :method => :post, :class => "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+
   <div class="col-md-6">
     <h2> <%= @product.title %> </h2>
     <div style="height:100px;">

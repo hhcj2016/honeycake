@@ -1,7 +1,7 @@
-<div class="row">
+<div class="productList-item">
   <% @products.each do |product| %>
   <div class="col-md-3">
-    <div class="productList-item">
+    <div class="productList-item-pic">
       <%= link_to product_path(product) do %>
         <% if product.image.present? %>
           <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
@@ -14,6 +14,6 @@
   </div>
 
   <% end %>
-</div>
 
+  </div>
 <p style=""></p>

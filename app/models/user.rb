@@ -10,4 +10,7 @@ class User < ApplicationRecord
 
   has_many :orders
 
+  has_many :favorites, :dependent => :destroy
+  has_many :favorite_products, :through => :favorites, :source => :product
+
 end

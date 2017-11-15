@@ -32,6 +32,11 @@
                      购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
                   <% end %>
                </li>
+
+               <li>
+                 <%= link_to(' 已收藏的商品'.html_safe, product_favorites_path(current_user.favorite_products)) %>
+               </li>
+
                 <% if !current_user %>
                   <li><%= link_to("注册", new_user_registration_path) %> </li>
                   <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>

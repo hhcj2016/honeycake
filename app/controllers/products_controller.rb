@@ -24,4 +24,21 @@ class ProductsController < ApplicationController
      redirect_to :back
   end
 
+    def favorite
+      @product = Product.find(params[:id])
+      unless @product.find_favorite(current_user)  # 如果已经收藏过了，就略过不再新增
+        Favorite.create( :user => current_user, :product => @product)
+      end
+
+      redirect_to product_path
+    end
+
+    def unfavorite
+      @product = Product.find(params[:id])
+      favorite = @product.find_favorite(current_user)
+      favorite.destroy
+
+      redirect_to product_path
+    end
+
 end

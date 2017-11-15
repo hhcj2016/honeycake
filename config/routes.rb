@@ -18,8 +18,12 @@ Rails.application.routes.draw do
   end
 
   resources :products do
+    resources :favorites
     member do
      post :add_to_cart
+     post :favorite
+     post :unfavorite
+     put :favorites
     end
   end
 
