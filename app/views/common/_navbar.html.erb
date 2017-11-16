@@ -33,9 +33,7 @@
                   <% end %>
                </li>
 
-            <!--  <li>
-                 <%= link_to(' 已收藏的商品'.html_safe, product_favorites_path(current_user.favorite_products)) %>
-               </li>   -->
+
 
                 <% if !current_user %>
                   <li><%= link_to("注册", new_user_registration_path) %> </li>

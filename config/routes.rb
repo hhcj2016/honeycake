@@ -17,25 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-#  resources :products do
-#     resources :favorites do
-#     end
-  #   member do
-  #    post :add_to_cart
-  #    post :favorite
-  #    post :unfavorite
-  #    put :favorites
-  #   end
-#   end
 
   resources :products do
-  #put :favorites, on: :member
-#  resources :favorites do
-#    end
   member do
    post :add_to_cart
-  # post "favorite" => "products#favorite"
-   #post "unfavorite" => "products#unfavorite"
+
   end
 end
 
